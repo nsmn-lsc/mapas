@@ -160,7 +160,6 @@ npx live-server
 | **Unidades IMSS Bienestar** | 69 |
 | **Hospitales** | 18 |
 | **Municipios Objetivo** | 11 |
-| **Jurisdicciones** | 12 |
 | **Cobertura Geográfica** | Estado de Hidalgo |
 
 ## 🎯 Casos de Uso
@@ -204,7 +203,7 @@ Para actualizar los mapas con nuevos datos:
 
 ## 📄 Licencia
 
-Este proyecto está desarrollado para uso institucional del IMSS Bienestar.
+Este proyecto está desarrollado para uso Personal.
 
 ## 👥 Contacto
 

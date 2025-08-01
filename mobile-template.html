@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    
+    <!-- Mejoras para móvil -->
+    <link rel="stylesheet" href="../assets/css/mobile-maps.css" />
+    
+    <style>
+        /* Estilos de emergencia para móvil si el CSS externo falla */
+        @media (max-width: 768px) {
+            .folium-map {
+                width: 100% !important;
+                height: 60vh !important;
+                min-height: 400px !important;
+            }
+            
+            .leaflet-popup-content-wrapper {
+                max-width: 85vw !important;
+                max-height: 45vh !important;
+                overflow-y: auto !important;
+            }
+            
+            .leaflet-popup-content {
+                font-size: 13px !important;
+                margin: 8px 12px !important;
+            }
+            
+            div[style*="position: fixed"][style*="right: 20px"] {
+                position: fixed !important;
+                width: 280px !important;
+                max-width: 85vw !important;
+                max-height: 70vh !important;
+                overflow-y: auto !important;
+                z-index: 1000 !important;
+                transition: transform 0.3s ease !important;
+            }
+            
+            .sidebar-collapsed {
+                transform: translateX(calc(100% + 10px)) !important;
+            }
+            
+            .mobile-toggle-btn {
+                position: fixed !important;
+                top: 10px !important;
+                right: 10px !important;
+                z-index: 1001 !important;
+                background: #006847 !important;
+                color: white !important;
+                border: none !important;
+                border-radius: 50% !important;
+                width: 40px !important;
+                height: 40px !important;
+                font-size: 18px !important;
+                cursor: pointer !important;
+                box-shadow: 0 2px 8px rgba(0,0,0,0.3) !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- El contenido del mapa se insertará aquí -->
+    
+    <!-- Scripts para mejoras móviles -->
+    <script>
+        // Script embebido para mejoras básicas móviles
+        (function() {
+            function isMobile() {
+                return window.innerWidth <= 768;
+            }
+            
+            if (isMobile()) {
+                document.addEventListener('DOMContentLoaded', function() {
+                    // Crear botón toggle para sidebar
+                    const sidebars = document.querySelectorAll('div[style*="position: fixed"][style*="right"]');
+                    sidebars.forEach((sidebar, index) => {
+                        const btn = document.createElement('button');
+                        btn.className = 'mobile-toggle-btn';
+                        btn.innerHTML = '📋';
+                        btn.style.top = (60 + index * 50) + 'px';
+                        
+                        let collapsed = false;
+                        btn.onclick = function() {
+                            collapsed = !collapsed;
+                            sidebar.style.transform = collapsed ? 'translateX(calc(100% + 10px))' : 'translateX(0)';
+                            btn.innerHTML = collapsed ? '📂' : '📋';
+                        };
+                        
+                        document.body.appendChild(btn);
+                        
+                        // Auto-colapsar en pantallas pequeñas
+                        if (window.innerWidth <= 480) {
+                            setTimeout(() => btn.click(), 1000);
+                        }
+                    });
+                });
+            }
+        })();
+    </script>
+    
+    <!-- Script principal para mejoras móviles -->
+    <script src="../assets/js/mobile-maps.js"></script>
+</body>
+</html>

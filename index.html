@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mapas IMSS Bienestar - Hidalgo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="assets/css/style.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="hero-section">
+        <div class="container">
+            <div class="row justify-content-center text-center">
+                <div class="col-lg-8">
+                    <h1 class="hero-title">
+                        <i class="fas fa-hospital-alt"></i>
+                        Sistema de Mapas IMSS Bienestar
+                    </h1>
+                    <p class="hero-subtitle">Estado de Hidalgo - Unidades de Salud y Hospitales</p>
+                    <p class="hero-description">
+                        Visualización interactiva del sistema de salud con 523 unidades de atención médica
+                        distribuidas en 84 municipios del estado de Hidalgo.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="hero-wave">
+            <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" fill="white"></path>
+            </svg>
+        </div>
+    </header>
+
+    <!-- Navigation Cards -->
+    <section class="maps-section py-5">
+        <div class="container">
+            <div class="row justify-content-center">
+                <!-- Mapa General -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="map-card">
+                        <div class="map-card-icon">
+                            <i class="fas fa-globe-americas"></i>
+                        </div>
+                        <div class="map-card-body">
+                            <h5 class="map-card-title">Mapa General</h5>
+                            <p class="map-card-text">
+                                Visualización completa de todas las jurisdicciones sanitarias del estado de Hidalgo
+                                con 523 unidades de salud distribuidas en 12 jurisdicciones.
+                            </p>
+                            <div class="map-stats">
+                                <span class="stat-item"><i class="fas fa-clinic-medical"></i> 523 Unidades</span>
+                                <span class="stat-item"><i class="fas fa-hospital"></i> 18 Hospitales</span>
+                            </div>
+                            <a href="files/mapa_localidades.html" class="btn btn-imss" target="_blank">
+                                <i class="fas fa-external-link-alt"></i> Ver Mapa Completo
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mapa IMSS Bienestar -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="map-card featured">
+                        <div class="map-card-icon">
+                            <i class="fas fa-bullseye"></i>
+                        </div>
+                        <div class="map-card-body">
+                            <h5 class="map-card-title">IMSS Bienestar</h5>
+                            <p class="map-card-text">
+                                Focalización en los 11 municipios objetivo del programa IMSS Bienestar
+                                con unidades especializadas en atención primaria.
+                            </p>
+                            <div class="map-stats">
+                                <span class="stat-item"><i class="fas fa-map-marker-alt"></i> 11 Municipios</span>
+                                <span class="stat-item"><i class="fas fa-clinic-medical"></i> 69 Unidades</span>
+                            </div>
+                            <a href="files/mapa_imss_bienestar.html" class="btn btn-imss" target="_blank">
+                                <i class="fas fa-external-link-alt"></i> Ver Mapa IMSS
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mapas Municipales -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="map-card">
+                        <div class="map-card-icon">
+                            <i class="fas fa-map-marked-alt"></i>
+                        </div>
+                        <div class="map-card-body">
+                            <h5 class="map-card-title">Por Municipio</h5>
+                            <p class="map-card-text">
+                                Exploración detallada municipio por municipio con información específica
+                                de unidades de salud y cobertura geográfica.
+                            </p>
+                            <div class="map-stats">
+                                <span class="stat-item"><i class="fas fa-list"></i> 11 Mapas</span>
+                                <span class="stat-item"><i class="fas fa-info-circle"></i> Detallados</span>
+                            </div>
+                            <a href="files/mapas_municipios/indice.html" class="btn btn-imss" target="_blank">
+                                <i class="fas fa-external-link-alt"></i> Ver Municipios
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Statistics Section -->
+    <section class="stats-section py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="stats-card">
+                        <h3 class="stats-title text-center mb-4">
+                            <i class="fas fa-chart-bar"></i> Estadísticas del Sistema de Salud
+                        </h3>
+                        <div class="row">
+                            <div class="col-lg-3 col-md-6 mb-3">
+                                <div class="stat-box">
+                                    <div class="stat-number text-success">523</div>
+                                    <div class="stat-label">Unidades de Salud Totales</div>
+                                    <div class="stat-description">En todo el estado</div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-6 mb-3">
+                                <div class="stat-box">
+                                    <div class="stat-number text-primary">69</div>
+                                    <div class="stat-label">Unidades IMSS Bienestar</div>
+                                    <div class="stat-description">En 11 municipios objetivo</div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-6 mb-3">
+                                <div class="stat-box">
+                                    <div class="stat-number text-danger">18</div>
+                                    <div class="stat-label">Hospitales</div>
+                                    <div class="stat-description">Segundo nivel de atención</div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-6 mb-3">
+                                <div class="stat-box">
+                                    <div class="stat-number text-warning">12</div>
+                                    <div class="stat-label">Jurisdicciones</div>
+                                    <div class="stat-description">Sanitarias del estado</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Information Section -->
+    <section class="info-section py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 mb-4">
+                    <div class="info-card">
+                        <h4><i class="fas fa-info-circle text-primary"></i> Acerca del Sistema</h4>
+                        <p>
+                            Este sistema de mapas interactivos presenta la distribución geográfica de las unidades 
+                            de salud en el estado de Hidalgo, con especial énfasis en los municipios atendidos 
+                            por el programa IMSS Bienestar.
+                        </p>
+                        <ul class="feature-list">
+                            <li><i class="fas fa-check text-success"></i> Mapas interactivos con Folium</li>
+                            <li><i class="fas fa-check text-success"></i> Diferenciación por niveles de atención</li>
+                            <li><i class="fas fa-check text-success"></i> Cobertura geográfica visualizada</li>
+                            <li><i class="fas fa-check text-success"></i> Información detallada por municipio</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-6 mb-4">
+                    <div class="info-card">
+                        <h4><i class="fas fa-palette text-success"></i> Leyenda de Colores</h4>
+                        <div class="legend-items">
+                            <div class="legend-item">
+                                <span class="legend-icon" style="background: #006847;">
+                                    <i class="fas fa-user-md"></i>
+                                </span>
+                                <div class="legend-text">
+                                    <strong>Unidades de Salud (1er Nivel)</strong>
+                                    <small>Consulta externa, medicina preventiva</small>
+                                </div>
+                            </div>
+                            <div class="legend-item">
+                                <span class="legend-icon" style="background: #B22222;">
+                                    <i class="fas fa-plus-square"></i>
+                                </span>
+                                <div class="legend-text">
+                                    <strong>Hospitales (2do Nivel)</strong>
+                                    <small>Hospitalización, especialidades</small>
+                                </div>
+                            </div>
+                            <div class="legend-item">
+                                <span class="legend-icon" style="background: #4A9B3A;">
+                                    <i class="fas fa-circle"></i>
+                                </span>
+                                <div class="legend-text">
+                                    <strong>Áreas de Cobertura</strong>
+                                    <small>Radio de influencia geográfica</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8">
+                    <p class="footer-text">
+                        <i class="fas fa-hospital"></i> Sistema de Mapas IMSS Bienestar - Estado de Hidalgo - LSC. Norel Sánchez Najera
+                    </p>
+                </div>
+                <div class="col-md-4 text-md-end">
+                    <p class="footer-text">
+                        <i class="fas fa-calendar"></i> Generado: 31 de julio de 2025
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/main.js"></script>
+</body>
+</html>

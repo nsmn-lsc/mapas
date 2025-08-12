@@ -21,11 +21,13 @@ def add_mobile_enhancements(html_file_path):
     <!-- Mejoras para visualización móvil -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <style>
+        html, body { height: 100%; margin: 0; }
+        body { overflow: hidden; }
         @media (max-width: 768px) {
             .folium-map {
                 width: 100% !important;
-                height: 60vh !important;
-                min-height: 400px !important;
+                height: 100vh !important;
+                min-height: 75vh !important;
             }
             
             .leaflet-popup-content-wrapper {
@@ -118,7 +120,7 @@ def add_mobile_enhancements(html_file_path):
             }
             #list-panel.open { transform: translateY(0); }
             #list-toggle {
-                position: fixed; right: 16px; bottom: 16px; z-index: 10001; background: #006847; color: #fff; border: none;
+                position: fixed; right: 16px; bottom: 90px; z-index: 10010; background: #006847; color: #fff; border: none;
                 padding: 12px 14px; border-radius: 999px; box-shadow: 0 6px 16px rgba(0,0,0,.2); font-weight: 800;
             }
 
@@ -190,29 +192,18 @@ def add_mobile_enhancements(html_file_path):
                         toggleBtn.addEventListener('click', () => setState(!listPanel.classList.contains('open')));
                     }
 
-                    // Crear botones toggle para sidebars
-                    const sidebars = document.querySelectorAll('div[style*="position: fixed"][style*="right"]');
-                    sidebars.forEach((sidebar, index) => {
-                        // evitar duplicar cuando es el panel nuevo
-                        if (sidebar.id === 'list-panel') return;
-                        const btn = document.createElement('button');
-                        btn.className = 'mobile-toggle-btn';
-                        btn.innerHTML = '📋';
-                        btn.style.top = (60 + index * 50) + 'px';
-                        btn.title = 'Mostrar/Ocultar información';
-                        
-                        let collapsed = false;
-                        btn.onclick = function() {
-                            collapsed = !collapsed;
-                            sidebar.style.transform = collapsed ? 'translateX(calc(100% + 10px))' : 'translateX(0)';
-                            btn.innerHTML = collapsed ? '📂' : '📋';
-                        };
-                        
-                        document.body.appendChild(btn);
-                        
-                        // Auto-colapsar en pantallas muy pequeñas
-                        if (window.innerWidth <= 480) {
-                            setTimeout(() => btn.click(), 1000);
+                    // Evitar que la leyenda u otros paneles tapen el botón del listado: reubicar leyenda si existe
+                    const panels = Array.from(document.querySelectorAll('div[style*="position: fixed"]'));
+                    panels.forEach((el) => {
+                        if (el.textContent && el.textContent.trim().startsWith('Leyenda')) {
+                            el.style.bottom = '16px';
+                            el.style.right = '16px';
+                            el.style.maxHeight = '40vh';
+                            el.style.zIndex = '1000';
+                        }
+                        // Mover cuadros en esquina inferior izquierda un poco arriba para no tapar
+                        if (el.textContent && el.textContent.trim().startsWith('Resumen')) {
+                            el.style.bottom = '80px';
                         }
                     });
                     

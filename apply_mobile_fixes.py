@@ -76,6 +76,7 @@ def add_mobile_enhancements(html_file_path):
                 font-size: 12px !important;
             }
             
+            /* Compatibilidad con panel lateral antiguo generado por Folium */
             div[style*="position: fixed"][style*="right: 20px"] {
                 position: fixed !important;
                 top: 10px !important;
@@ -108,6 +109,19 @@ def add_mobile_enhancements(html_file_path):
                 box-shadow: 0 2px 8px rgba(0,0,0,0.3) !important;
             }
             
+            /* Nuevo panel #list-panel: acoplado al fondo y oculto por defecto en móvil */
+            #list-panel {
+                left: 0 !important; right: 0 !important; width: auto !important; bottom: 0 !important;
+                border-left: none !important; border-right: none !important; border-bottom: none !important;
+                border-radius: 14px 14px 0 0 !important;
+                max-height: 68vh !important; transform: translateY(100%); transition: transform .25s ease; padding: 12px 14px !important;
+            }
+            #list-panel.open { transform: translateY(0); }
+            #list-toggle {
+                position: fixed; right: 16px; bottom: 16px; z-index: 10001; background: #006847; color: #fff; border: none;
+                padding: 12px 14px; border-radius: 999px; box-shadow: 0 6px 16px rgba(0,0,0,.2); font-weight: 800;
+            }
+
             div[style*="position: fixed"][style*="bottom: 50px"] {
                 position: fixed !important;
                 bottom: 10px !important;
@@ -154,9 +168,33 @@ def add_mobile_enhancements(html_file_path):
             
             if (isMobile()) {
                 document.addEventListener('DOMContentLoaded', function() {
+                    // Gestionar explícitamente el nuevo panel #list-panel
+                    const listPanel = document.getElementById('list-panel');
+                    if (listPanel) {
+                        // Crear botón si no existe
+                        let toggleBtn = document.getElementById('list-toggle');
+                        if (!toggleBtn) {
+                            toggleBtn = document.createElement('button');
+                            toggleBtn.id = 'list-toggle';
+                            toggleBtn.setAttribute('aria-expanded', 'false');
+                            toggleBtn.setAttribute('aria-controls', 'list-panel');
+                            toggleBtn.textContent = '📋 Lista';
+                            document.body.appendChild(toggleBtn);
+                        }
+                        const setState = (open) => {
+                            listPanel.classList.toggle('open', open);
+                            toggleBtn.setAttribute('aria-expanded', String(open));
+                        };
+                        // Ocultar por defecto en móvil
+                        setState(false);
+                        toggleBtn.addEventListener('click', () => setState(!listPanel.classList.contains('open')));
+                    }
+
                     // Crear botones toggle para sidebars
                     const sidebars = document.querySelectorAll('div[style*="position: fixed"][style*="right"]');
                     sidebars.forEach((sidebar, index) => {
+                        // evitar duplicar cuando es el panel nuevo
+                        if (sidebar.id === 'list-panel') return;
                         const btn = document.createElement('button');
                         btn.className = 'mobile-toggle-btn';
                         btn.innerHTML = '📋';
@@ -248,10 +286,11 @@ def process_all_maps():
         print("❌ No se encontró el directorio 'files/'")
         return
     
-    # Procesar mapas principales
+    # Procesar mapas principales (ajustar a los nombres reales)
     main_maps = [
-        "mapa_localidades.html",
-        "mapa_imss_bienestar.html"
+        "mapa_unidades_imss.html",  # principal actual
+        "mapas_regiones/mapa_regiones_estado.html",  # mapa global por regiones
+        "mapa_imss_bienestar.html"  # por compatibilidad si existiera
     ]
     
     for map_file in main_maps:
@@ -268,6 +307,14 @@ def process_all_maps():
             add_mobile_enhancements(html_file)
     else:
         print("⚠️  No se encontró el directorio 'mapas_municipios/'")
+
+    # Procesar mapas por regiones
+    regiones_dir = maps_directory / "mapas_regiones"
+    if regiones_dir.exists():
+        for html_file in regiones_dir.glob("*.html"):
+            add_mobile_enhancements(html_file)
+    else:
+        print("⚠️  No se encontró el directorio 'mapas_regiones/'")
 
 if __name__ == "__main__":
     print("🔧 Aplicando mejoras móviles a los mapas...")

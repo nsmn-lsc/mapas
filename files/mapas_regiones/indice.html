@@ -1,89 +1,68 @@
+
 <!DOCTYPE html>
-<html lang="es">
+<html>
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Índice de Mapas por Región - Hidalgo</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-  <style>
-    body { background: #f8f9fa; }
-    .header { text-align: center; margin: 40px 0 20px; }
-    .card-region { border-left: 6px solid #006847; box-shadow: 0 2px 8px rgba(0,0,0,0.07); }
-    .btn-imss { background: #006847; color: #fff; }
-    .btn-imss:hover { background: #075b38; color: #fff; }
-  </style>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Menú de Regiones - Hidalgo</title>
+    <style>
+        :root { --brand: #006847; }
+        * { box-sizing: border-box; }
+        body { font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; margin: 0; color: #222; background: linear-gradient(180deg, #f3f7f5 0%, #f8f9fa 60%); }
+        .wrap { max-width: 1100px; margin: 0 auto; padding: 32px 20px 28px; }
+        .header { text-align: center; color: var(--brand); margin-bottom: 22px; }
+        .header h1 { margin: 0 0 8px; font-size: 28px; letter-spacing: 0.2px; }
+        .header p { margin: 6px 0 0; font-size: 14px; color: #335a52; }
+        .links { margin-top: 8px; font-size: 14px; }
+        .links a { color: #0b5d4a; text-decoration: none; font-weight: 600; }
+        .search { margin: 18px auto 10px; max-width: 520px; display: flex; gap: 8px; }
+        .search input { flex: 1; padding: 10px 12px; border: 1px solid #d7e0dc; border-radius: 10px; font-size: 14px; outline: none; }
+        .search input:focus { border-color: #9ccbbf; box-shadow: 0 0 0 3px rgba(0,104,71,0.12); }
+        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; margin-top: 12px; }
+        .card { --c: var(--brand); background: #fff; border: 1px solid #e6e6e6; border-top: 8px solid var(--c); border-radius: 14px; padding: 18px; box-shadow: 0 6px 18px rgba(0,0,0,0.06); transition: transform 0.15s ease, box-shadow 0.15s ease; display: flex; flex-direction: column; }
+        .card:hover { transform: translateY(-2px); box-shadow: 0 10px 24px rgba(0,0,0,0.10); }
+        .title { color: var(--c); font-size: 20px; font-weight: 800; margin: 2px 0 8px; }
+        .meta { color: #5e6b6f; font-size: 13px; margin-bottom: 12px; }
+        .badges { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 12px; }
+        .chip { background: #f1f5f4; color: #244b43; border: 1px solid #d9e6e2; padding: 4px 8px; border-radius: 999px; font-size: 12px; }
+        .actions { margin-top: auto; display: flex; align-items: center; gap: 10px; }
+        .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 9px 12px; border-radius: 10px; text-decoration: none; font-weight: 700; font-size: 14px; }
+        .btn.primary { background: var(--c); color: #fff; }
+        .btn.primary:hover { filter: brightness(0.92); }
+        .btn.link { color: #1f3d59; font-weight: 700; }
+        .footer { text-align:center; color:#667; font-size:12px; margin: 26px 0 8px; }
+        @media (max-width: 520px) { .header h1 { font-size: 22px; } .title { font-size: 18px; } }
+    </style>
 </head>
 <body>
-  <div class="container">
-    <div class="header">
-      <h1><i class="fas fa-layer-group text-success"></i> Mapas por Región</h1>
-      <p>Estado de Hidalgo</p>
-      <p><a href="../../index.html" class="btn btn-outline-secondary"><i class="fas fa-home"></i> Volver al inicio</a></p>
+    <div class="wrap">
+        <div class="header">
+            <h1>📍 Menú de Regiones - Hidalgo</h1>
+            <div class="links">
+                <a href="../../index.html">Volver al inicio</a> • <a href="mapa_regiones_estado.html">Ver mapa global por regiones</a>
+            </div>
+        </div>
+        <div class="search">
+            <input id="q" type="search" placeholder="Buscar región..." aria-label="Buscar región" />
+        </div>
+        <div class="grid" id="grid">
+<article class="card" style="--c:#006847" data-name="region actopan">  <div class="title">Region Actopan</div>  <div class="meta">Municipios: 7</div>  <div class="badges"><span class="chip">Región</span><span class="chip">Hidalgo</span></div>  <div class="actions">    <a class="btn primary" href="mapa_region_actopan.html" aria-label="Ver región Region Actopan">Ver región</a>    <a class="btn link" href="../mapas_municipios/indice.html">Municipios</a>  </div></article><article class="card" style="--c:#1f77b4" data-name="region apan">  <div class="title">Region Apan</div>  <div class="meta">Municipios: 8</div>  <div class="badges"><span class="chip">Región</span><span class="chip">Hidalgo</span></div>  <div class="actions">    <a class="btn primary" href="mapa_region_apan.html" aria-label="Ver región Region Apan">Ver región</a>    <a class="btn link" href="../mapas_municipios/indice.html">Municipios</a>  </div></article><article class="card" style="--c:#ff7f0e" data-name="region huasteca">  <div class="title">Region Huasteca</div>  <div class="meta">Municipios: 12</div>  <div class="badges"><span class="chip">Región</span><span class="chip">Hidalgo</span></div>  <div class="actions">    <a class="btn primary" href="mapa_region_huasteca.html" aria-label="Ver región Region Huasteca">Ver región</a>    <a class="btn link" href="../mapas_municipios/indice.html">Municipios</a>  </div></article><article class="card" style="--c:#2ca02c" data-name="region ixmiquilpan">  <div class="title">Region Ixmiquilpan</div>  <div class="meta">Municipios: 9</div>  <div class="badges"><span class="chip">Región</span><span class="chip">Hidalgo</span></div>  <div class="actions">    <a class="btn primary" href="mapa_region_ixmiquilpan.html" aria-label="Ver región Region Ixmiquilpan">Ver región</a>    <a class="btn link" href="../mapas_municipios/indice.html">Municipios</a>  </div></article><article class="card" style="--c:#d62728" data-name="region metztitlán">  <div class="title">Region Metztitlán</div>  <div class="meta">Municipios: 9</div>  <div class="badges"><span class="chip">Región</span><span class="chip">Hidalgo</span></div>  <div class="actions">    <a class="btn primary" href="mapa_region_metztitlán.html" aria-label="Ver región Region Metztitlán">Ver región</a>    <a class="btn link" href="../mapas_municipios/indice.html">Municipios</a>  </div></article><article class="card" style="--c:#9467bd" data-name="region pachuca">  <div class="title">Region Pachuca</div>  <div class="meta">Municipios: 5</div>  <div class="badges"><span class="chip">Región</span><span class="chip">Hidalgo</span></div>  <div class="actions">    <a class="btn primary" href="mapa_region_pachuca.html" aria-label="Ver región Region Pachuca">Ver región</a>    <a class="btn link" href="../mapas_municipios/indice.html">Municipios</a>  </div></article><article class="card" style="--c:#8c564b" data-name="region tizayuca">  <div class="title">Region Tizayuca</div>  <div class="meta">Municipios: 5</div>  <div class="badges"><span class="chip">Región</span><span class="chip">Hidalgo</span></div>  <div class="actions">    <a class="btn primary" href="mapa_region_tizayuca.html" aria-label="Ver región Region Tizayuca">Ver región</a>    <a class="btn link" href="../mapas_municipios/indice.html">Municipios</a>  </div></article><article class="card" style="--c:#e377c2" data-name="region tula">  <div class="title">Region Tula</div>  <div class="meta">Municipios: 11</div>  <div class="badges"><span class="chip">Región</span><span class="chip">Hidalgo</span></div>  <div class="actions">    <a class="btn primary" href="mapa_region_tula.html" aria-label="Ver región Region Tula">Ver región</a>    <a class="btn link" href="../mapas_municipios/indice.html">Municipios</a>  </div></article><article class="card" style="--c:#7f7f7f" data-name="region tulancingo">  <div class="title">Region Tulancingo</div>  <div class="meta">Municipios: 10</div>  <div class="badges"><span class="chip">Región</span><span class="chip">Hidalgo</span></div>  <div class="actions">    <a class="btn primary" href="mapa_region_tulancingo.html" aria-label="Ver región Region Tulancingo">Ver región</a>    <a class="btn link" href="../mapas_municipios/indice.html">Municipios</a>  </div></article><article class="card" style="--c:#17becf" data-name="region zimapán">  <div class="title">Region Zimapán</div>  <div class="meta">Municipios: 7</div>  <div class="badges"><span class="chip">Región</span><span class="chip">Hidalgo</span></div>  <div class="actions">    <a class="btn primary" href="mapa_region_zimapán.html" aria-label="Ver región Region Zimapán">Ver región</a>    <a class="btn link" href="../mapas_municipios/indice.html">Municipios</a>  </div></article>
+        </div>
+        <div class="footer">Generado el 11/08/2025 23:17 • Mapas Hidalgo</div>
     </div>
-
-    <div class="row g-3">
-      <div class="col-md-6 col-lg-4">
-        <div class="card card-region p-3">
-          <h5>Región Actopan</h5>
-          <a class="btn btn-imss" href="mapa_region_actopan.html" target="_blank">Abrir mapa</a>
-        </div>
-      </div>
-      <div class="col-md-6 col-lg-4">
-        <div class="card card-region p-3">
-          <h5>Región Apan</h5>
-          <a class="btn btn-imss" href="mapa_region_apan.html" target="_blank">Abrir mapa</a>
-        </div>
-      </div>
-      <div class="col-md-6 col-lg-4">
-        <div class="card card-region p-3">
-          <h5>Región Huasteca</h5>
-          <a class="btn btn-imss" href="mapa_region_huasteca.html" target="_blank">Abrir mapa</a>
-        </div>
-      </div>
-      <div class="col-md-6 col-lg-4">
-        <div class="card card-region p-3">
-          <h5>Región Ixmiquilpan</h5>
-          <a class="btn btn-imss" href="mapa_region_ixmiquilpan.html" target="_blank">Abrir mapa</a>
-        </div>
-      </div>
-      <div class="col-md-6 col-lg-4">
-        <div class="card card-region p-3">
-          <h5>Región Metztitlán</h5>
-          <a class="btn btn-imss" href="mapa_region_metztitlán.html" target="_blank">Abrir mapa</a>
-        </div>
-      </div>
-      <div class="col-md-6 col-lg-4">
-        <div class="card card-region p-3">
-          <h5>Región Pachuca</h5>
-          <a class="btn btn-imss" href="mapa_region_pachuca.html" target="_blank">Abrir mapa</a>
-        </div>
-      </div>
-      <div class="col-md-6 col-lg-4">
-        <div class="card card-region p-3">
-          <h5>Región Tizayuca</h5>
-          <a class="btn btn-imss" href="mapa_region_tizayuca.html" target="_blank">Abrir mapa</a>
-        </div>
-      </div>
-      <div class="col-md-6 col-lg-4">
-        <div class="card card-region p-3">
-          <h5>Región Tula</h5>
-          <a class="btn btn-imss" href="mapa_region_tula.html" target="_blank">Abrir mapa</a>
-        </div>
-      </div>
-      <div class="col-md-6 col-lg-4">
-        <div class="card card-region p-3">
-          <h5>Región Tulancingo</h5>
-          <a class="btn btn-imss" href="mapa_region_tulancingo.html" target="_blank">Abrir mapa</a>
-        </div>
-      </div>
-      <div class="col-md-6 col-lg-4">
-        <div class="card card-region p-3">
-          <h5>Región Zimapán</h5>
-          <a class="btn btn-imss" href="mapa_region_zimapán.html" target="_blank">Abrir mapa</a>
-        </div>
-      </div>
-    </div>
-  </div>
+    <script>
+        (function() {
+            const q = document.getElementById('q');
+            const cards = Array.from(document.querySelectorAll('#grid .card'));
+            function filter() {
+                const v = (q.value || '').toLowerCase().trim();
+                cards.forEach(c => {
+                    const name = (c.dataset.name || '').toLowerCase();
+                    c.style.display = (!v || name.includes(v)) ? '' : 'none';
+                });
+            }
+            q.addEventListener('input', filter);
+        })();
+    </script>
 </body>
 </html>
